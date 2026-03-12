@@ -1,0 +1,233 @@
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* COLORES */
+:root{
+--principal:#644D7A;
+--secundario:#A5CDC4;
+--texto:#333;
+
+}
+
+h1 img{
+    width:150px;
+}
+
+.logo img{
+    height:60px;
+    background:transparent;
+}
+
+/* BODY */
+body{
+background:#f5f5f5;
+color:var(--texto);
+}
+
+
+/* HEADER */
+
+header{
+    background: #644D7A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+}
+
+/* Logo */
+.logo img{
+    height:100px;
+}
+
+/* Menú */
+nav{
+    display:flex;
+    gap:35px;
+}
+
+/* Links */
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+    position:relative;
+    transition:0.3s;
+}
+
+/* Efecto hover */
+nav a:hover{
+    color:#A5CDC4;
+}
+
+/* Línea animada debajo */
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#A5CDC4;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+
+/* HERO */
+.hero{
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(135deg,#644D7A,#A5CDC4);
+color:white;
+
+}
+
+.hero h2{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.hero p{
+margin-bottom:25px;
+}
+
+/* BOTONES ANIMADOS */
+.btn-principal{
+background:white;
+color:var(--principal);
+padding:12px 28px;
+border:none;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+transition:all 0.3s ease;
+}
+
+.btn-principal:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+/* PRODUCTOS */
+.productos{
+padding:50px 20px;
+}
+.productos h2{
+text-align:center;
+margin-bottom:40px;
+}
+
+
+/* GRID */
+.grid-productos{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+
+/* TARJETA MODERNA */
+.producto{
+background:white;
+border-radius:15px;
+overflow:hidden;
+padding:15px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+transition:all 0.3s ease;
+}
+
+.producto:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* IMAGEN */
+.producto img{
+width:100%;
+border-radius:10px;
+}
+
+/* PRECIOS */
+.precio-original{
+text-decoration:line-through;
+color:red;
+}
+
+.precio-nuevo{
+font-size:22px;
+font-weight:bold;
+color:var(--principal);
+}
+
+
+/* BOTON COMPRAR */
+.btn-comprar{
+background:var(--secundario);
+border:none;
+padding:10px;
+border-radius:6px;
+margin-top:10px;
+cursor:pointer;
+transition:all 0.3s;
+}
+
+.btn-comprar:hover{
+background:var(--principal);
+color:white;
+transform:scale(1.05);
+}
+
+
+/* CONTACTO */
+.contacto{
+padding:60px 20px;
+text-align:center;
+background:white;
+}
+
+.contacto input{
+padding:12px;
+width:250px;
+margin:10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+
+/* FOOTER */
+footer{
+background:var(--principal);
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width:768px){
+nav{
+flex-direction:column;
+}
+nav ul{
+flex-direction:column;
+align-items:center;
+}
+.grid-productos{
+grid-template-columns:1fr;
+}
+}

@@ -5,29 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GangaWeb</title>
 <link rel="stylesheet" href="style.css">
-    </head>
+</head>
+
 <body>
+
 <header>
     <div class="logo">
         <img src="archivos/logo.png" alt="GangaWeb">
     </div>
 
-   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#ofertas">Ofertas</a>
-    <a href="#contacto">Contacto</a>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#contacto">Contacto</a>
     </nav>
 </header>
+
 <main>
+
 <section id="inicio" class="hero">
 <h2>Las Mejores Gangas de Internet</h2>
-
 <p>Encuentra productos rebajados y ahorra dinero comprando inteligente.</p>
 
 <a href="#ofertas">
 <button class="btn-principal">Ver Ofertas</button>
 </a>
-    </section>
+</section>
 
 <section id="ofertas" class="productos">
 <h2>Ofertas Destacadas</h2>
@@ -39,7 +42,7 @@
 <h3>Auriculares Gamer</h3>
 <p class="precio-original">Q.999</p>
 <p class="precio-nuevo">Q.599</p>
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar" data-nombre="Auriculares Gamer" data-precio="599" data-original="999" data-img="archivos/gengar.jpg">Comprar</button>
 </article>
 
 <article class="producto">
@@ -47,7 +50,7 @@
 <h3>Smartwatch</h3>
 <p class="precio-original">Q.1200</p>
 <p class="precio-nuevo">Q.600</p>
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar" data-nombre="Smartwatch" data-precio="600"  data-original="1200" data-img="archivos/smartwatch.webp">Comprar</button>
 </article>
 
 <article class="producto">
@@ -55,7 +58,7 @@
 <h3>Teclado Mecánico</h3>
 <p class="precio-original">Q.275</p>
 <p class="precio-nuevo">Q.250</p>
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar" data-nombre="Teclado Mecánico" data-precio="250" data-original="275" data-img="archivos/teclado_mecanico.jpg">Comprar</button>
 </article>
 
 <article class="producto">
@@ -63,7 +66,7 @@
 <h3>Mouse Gamer RGB</h3>
 <p class="precio-original">Q.250</p>
 <p class="precio-nuevo">Q.200</p>
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar" data-nombre="Mouse Gamer RGB" data-precio="200" data-original="250" data-img="archivos/mouse_rgb.webp">Comprar</button>
 </article>
 
 <article class="producto">
@@ -71,7 +74,7 @@
 <h3>Nintendo Switch</h3>
 <p class="precio-original">Q.1999</p>
 <p class="precio-nuevo">Q.1700</p>
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar" data-nombre="Nintendo Switch" data-precio="1700" data-original="1999" data-img="archivos/Nintendo Switch.jpg">Comprar</button>
 </article>
 
 <article class="producto">
@@ -79,7 +82,7 @@
 <h3>Xbox 360</h3>
 <p class="precio-original">Q.1300</p>
 <p class="precio-nuevo">Q.1000</p>
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar" data-nombre="Xbox 360" data-precio="1000" data-original="1300" data-img="archivos/Xbox360.jpg">Comprar</button>
 </article>
 
 <article class="producto">
@@ -87,7 +90,7 @@
 <h3>PlayStation 5</h3>
 <p class="precio-original">Q.6995</p>
 <p class="precio-nuevo">Q.5799</p>
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar" data-nombre="PlayStation 5" data-precio="5799" data-original="6995" data-img="archivos/PS5.webp">Comprar</button>
 </article>
 
 <article class="producto">
@@ -95,11 +98,36 @@
 <h3>Remote PlayStation 5</h3>
 <p class="precio-original">Q.2995</p>
 <p class="precio-nuevo">Q.2799</p>
-<button class="btn-comprar">Comprar</button>
+<button class="btn-comprar" data-nombre="Remote PS5" data-precio="2799" data-original="2995" data-img="archivos/remotops5.webp">Comprar</button>
+
 </article>
 
 </div>
 </section>
+
+<section class="carrito">
+    <h2>🛒 Carrito de Compras</h2>
+
+    <table class="tabla-carrito">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Precio Original</th>
+            <th>Precio</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody id="lista-carrito"></tbody>
+    </table>
+
+    <p><strong>Total: Q.<span id="total">0</span></strong></p>
+
+    <button id="btn-comprar-final" class="btn-principal">
+        Confirmar Compra
+    </button>
+</section>
+
 
 <section id="contacto" class="contacto">
 <h2>Recibe Ofertas en tu Correo</h2>
@@ -107,11 +135,17 @@
 <input type="email" placeholder="Tu correo">
 <button class="btn-principal">Suscribirse</button>
 </section>
-</main>
 
+
+</main>
 
 <footer>
 <p>© 2026 GangaWeb</p>
 </footer>
-    </body>
-    </html>
+
+<script src="app.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="carrito.js"></script>
+
+</body>
+</html>

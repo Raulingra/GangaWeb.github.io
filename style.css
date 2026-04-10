@@ -353,3 +353,24 @@ margin-top:40px;
     object-fit:cover;
     border-radius:8px;
 }
+
+/* Botones cantidad */
+.mas, .menos{
+    padding: 5px 10px;
+    border: none;
+    background: #644D7A;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.mas:hover, .menos:hover{
+    background: #A5CDC4;
+    color: #333;
+}
+
+.cantidad{
+    margin: 0 5px;
+    font-weight: bold;
+}

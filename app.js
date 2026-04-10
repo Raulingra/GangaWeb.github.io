@@ -29,27 +29,67 @@ document.addEventListener("DOMContentLoaded", () => {
             const nombre = boton.getAttribute("data-nombre");
             const precio = parseFloat(boton.getAttribute("data-precio"));
             const original = boton.getAttribute("data-original");
-            const img = boton.getAttribute("data-img"); // 🔥 NUEVO
+            const img = boton.getAttribute("data-img");
 
-            //AGREGAR IMAGEN AL CARRITO
+            let cantidad = 1;
+
             const fila = document.createElement("tr");
 
+            // ✅ UNA SOLA VEZ innerHTML
             fila.innerHTML = `
                 <td>
                     <img src="${img}" style="width:50px; height:50px; object-fit:cover; border-radius:8px;">
                 </td>
                 <td>${nombre}</td>
                 <td style="text-decoration: line-through; color:red;">Q.${original}</td>
-                <td style="color:green; font-weight:bold;">Q.${precio}</td>
+                <td class="precio">Q.${precio}</td>
+                <td>
+                    <button class="menos">-</button>
+                    <span class="cantidad">1</span>
+                    <button class="mas">+</button>
+                </td>
+                <td class="subtotal">Q.${precio}</td>
                 <td>
                     <button class="btn-eliminar">Eliminar</button>
                 </td>
             `;
 
-            // ELIMINAR PRODUCTO
+            const btnMas = fila.querySelector(".mas");
+            const btnMenos = fila.querySelector(".menos");
+            const spanCantidad = fila.querySelector(".cantidad");
+            const subtotalElemento = fila.querySelector(".subtotal");
+
+            // ➕ SUMAR
+            btnMas.addEventListener("click", () => {
+                cantidad++;
+                spanCantidad.textContent = cantidad;
+
+                total += precio;
+                subtotalElemento.textContent = "Q." + (precio * cantidad);
+                totalElemento.textContent = total;
+
+                actualizarEstadoBoton();
+            });
+
+            // ➖ RESTAR
+            btnMenos.addEventListener("click", () => {
+                if (cantidad > 1) {
+                    cantidad--;
+                    spanCantidad.textContent = cantidad;
+
+                    total -= precio;
+                    subtotalElemento.textContent = "Q." + (precio * cantidad);
+                    totalElemento.textContent = total;
+
+                    actualizarEstadoBoton();
+                }
+            });
+
+            // ❌ ELIMINAR (CORREGIDO)
             fila.querySelector(".btn-eliminar").addEventListener("click", () => {
                 lista.removeChild(fila);
-                total -= precio;
+
+                total -= (precio * cantidad); // 🔥 ahora sí correcto
                 totalElemento.textContent = total;
 
                 actualizarEstadoBoton();
@@ -62,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             actualizarEstadoBoton();
 
-            // 🔥 ALERTA BONITA
+            // ALERTA
             Swal.fire({
                 icon: 'success',
                 title: 'Agregado al carrito 🛒',
@@ -74,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    //  CONFIRMAR COMPRA
+    // CONFIRMAR COMPRA
     btnFinal.addEventListener("click", () => {
 
         if (total === 0) return;
